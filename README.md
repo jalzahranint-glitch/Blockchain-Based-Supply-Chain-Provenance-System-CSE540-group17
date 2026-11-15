@@ -26,6 +26,8 @@ We currently use:
 - **Remix IDE:** To write, compile, deploy, and test the contract.
 - **Remix VM:** To test the contract locally.
 - **GitHub:** To store and share our project files.
+- **Python:** To simulate IoT sensor readings and verify data integrity.
+- **SHA-256:** To generate hashes for IoT data and detect modifications.
 
 The smart contract uses Solidity `^0.8.20` and was compiled using version `0.8.34`.
 
@@ -35,16 +37,20 @@ For later stages, we plan to use Polygon Amoy, MetaMask, IPFS, and a simple web 
 
 The main smart contract is `SupplyChain.sol`.
 
-It includes six functions:
-
-- `setParticipantRole()` – Assigns or changes a participant's role.
-- `getParticipantRole()` – Returns the role assigned to a participant.
+The main smart contract includes the following functions:
+- `setParticipantRole()` – Assigns or changes participant roles.
+- `getParticipantRole()` – Returns a participant's assigned role.
 - `registerProduct()` – Registers a new product with a unique ID.
 - `getProduct()` – Returns information about a registered product.
 - `updateStatus()` – Updates a product's status.
 - `transferCustody()` – Transfers custody to the next authorized participant.
-
-The contract also uses events to record product registration, role changes, status updates, and custody transfers.
+- `transferAdministration()` – Nominates a new administrator.
+- `acceptAdministration()` – Allows the nominated administrator to accept control.
+- `adminReassignCustody()` – Reassigns custody when the current custodian is no longer authorized.
+- `recordIoTHash()` – Records the SHA-256 hash of off-chain IoT data.
+- `verifyIoTHash()` – Checks whether an IoT data hash matches the stored hash.
+  
+The contract also uses events to record product registration, role changes, status updates, custody transfers, administration changes, and IoT hash recordings.
 
 ## 4. Participant Roles
 
@@ -85,13 +91,22 @@ contracts/
 tests/
     SupplyChain_test.sol
 
+iot_simulation/
+    generate_iot_data.py
+    verify_iot_data.py
+    iot_readings.json
+    iot_readings_tampered.json
+    original_hash.txt
 README.md
 ```
 
-- `SupplyChain.sol` contains the main smart contract.
-- `UnauthorizedRoleCaller.sol` is a helper contract used for automated testing.
-- `SupplyChain_test.sol` contains the automated unit tests.
-- `README.md` contains the project description and setup instructions.
+- `iot_simulation/` contains the Python scripts and sample IoT data.
+- `generate_iot_data.py` generates simulated sensor readings and their SHA-256 hash.
+- `verify_iot_data.py` checks whether the IoT data matches the original hash.
+- `iot_readings.json` contains the original simulated sensor data.
+- `iot_readings_tampered.json` contains modified data used to demonstrate tampering detection.
+- `original_hash.txt` stores the SHA-256 hash of the original data.
+
 
 ## 7. How to Compile and Deploy
 
@@ -109,10 +124,12 @@ README.md
 The account that deploys the contract becomes the administrator.
 
 No real cryptocurrency is needed when testing in Remix VM.
+The contract has been deployed and tested locally using Remix VM. Deployment to the Polygon Amoy testnet is planned for a later stage.
 
 ## 8. How to Use the Contract
 
 After deployment:
+
 
 1. The administrator assigns participant roles using `setParticipantRole()`.
 2. An authorized Producer registers a product using `registerProduct()`.
@@ -120,16 +137,21 @@ After deployment:
 4. The current custodian transfers the product using `transferCustody()`.
 5. The current custodian updates the product status using `updateStatus()`.
 6. Users can check assigned roles using `getParticipantRole()`.
+7. The administrator can nominate a new administrator using `transferAdministration()`. The nominated account must call `acceptAdministration()` to complete the transfer.
+8. If a custodian loses the required role, the administrator can reassign custody using `adminReassignCustody()`.
+9. The current authorized custodian can record an IoT data hash using `recordIoTHash()`.
+10. Users can verify the recorded IoT hash using `verifyIoTHash()`.
 
-Only the administrator can call `setParticipantRole()`.
+Only the administrator can assign participant roles or reassign custody when the current custodian is no longer authorized.
 
 Participants must follow the allowed custody transfer sequence.
 
+The IoT hash verification function returns `true` when the provided hash matches the stored hash and `false` when it does not match.
+
 ## 9. Testing
+We tested the smart contract locally using Remix VM and the Solidity Unit Testing plugin.
 
-We tested the smart contract using Remix VM and the Solidity Unit Testing plugin.
-
-We completed 10 automated tests. In our latest test run, all 10 tests passed with 0 failures.
+We completed 17 automated tests. In our latest test run, all 17 tests passed with 0 failures.
 
 The tests cover:
 
@@ -143,6 +165,13 @@ The tests cover:
 8. Invalid status transition rejection.
 9. Invalid custody transfer rejection.
 10. Custody transfer rejection after delivery.
+11. Administration nomination.
+12. Administration acceptance.
+13. Administrator custody recovery.
+14. Reassignment rejection when the current custodian is still authorized.
+15. Reassignment rejection when the new custodian has an incorrect role.
+16. IoT hash verification.
+17. Unauthorized IoT hash recording rejection.
 
 ### How to Run the Automated Tests
 
@@ -155,18 +184,83 @@ The tests cover:
 
 Some tests depend on data created by earlier tests, so the complete test suite should be run together.
 
+### IoT Data Integrity Testing
+
+We also tested IoT data integrity using Python and SHA-256.
+
+The simulation generated 20 sensor readings containing temperature and humidity values.
+
+We calculated the SHA-256 hash of the original data and verified that it matched the hash recorded in the smart contract.
+
+We then modified a temperature reading to simulate data tampering.
+
+The original hash returned `true` during verification, while the modified data hash returned `false`.
+
+These tests were performed locally using Python and Remix VM.
+
 ## 10. Current Status and Future Work
 
-We have completed the main smart contract functions and tested them locally in Remix VM.
+We have completed the main smart contract functions and tested them locally using Remix VM.
 
-The current version supports product registration, participant roles, custody transfers, status updates, and event logging.
+The current implementation supports product registration, role-based access control, custody transfers, status updates, administration management, event logging, and IoT hash verification.
+
+We also developed a Python-based IoT simulation that generates temperature and humidity readings. We used SHA-256 hashing to verify data integrity and demonstrate how modified sensor data can be detected.
+
+All 17 automated Solidity unit tests passed with 0 failures.
 
 In the next stages, we plan to:
 
-- Deploy the contract to the Polygon Amoy testnet.
+- Deploy the smart contract to the Polygon Amoy testnet.
 - Use MetaMask to connect participant wallets.
-- Use IPFS to store product metadata.
-- Develop a simple interface for product tracking.
-- Continue improving automated tests and system evaluation.
+- Integrate IPFS for off-chain product metadata storage.
+- Complete a simple web or command-line interface for product tracking.
+- Evaluate gas costs, scalability, privacy, and on-chain versus off-chain data management.
+- Compare blockchain-based tracking with traditional centralized systems.
 
-These integrations are planned for future development and are not part of the current implementation.
+These integrations and evaluations are planned for future development and have not yet been completed.
+
+## 11. How to Run the IoT Simulation
+
+The `iot_simulation` folder contains Python scripts and sample sensor data used to demonstrate data integrity verification.
+
+### Requirements
+
+- Python 3
+- No additional Python libraries are required.
+
+### Steps
+
+1. Open a terminal.
+2. Navigate to the `iot_simulation` directory:
+
+```bash
+cd iot_simulation
+```
+
+3. Verify the original IoT data:
+
+```bash
+python3 verify_iot_data.py
+```
+
+If the data has not been modified, the script displays:
+
+```text
+VERIFIED: IoT data has not been modified
+```
+
+4. Compare the original and modified IoT data hashes:
+
+```bash
+shasum -a 256 iot_readings.json iot_readings_tampered.json
+```
+
+The two files produce different SHA-256 hashes, demonstrating how modifications to the sensor data can be detected.
+
+The `generate_iot_data.py` script was used to create the original 20 simulated sensor readings and their SHA-256 hash. The generated files are already included in the repository.
+
+The original hash can also be recorded using `recordIoTHash()` and checked using `verifyIoTHash()` in Remix VM.
+
+
+
+
