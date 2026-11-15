@@ -1,0 +1,107 @@
+{
+  "productId": 1001,
+  "sensorId": "SENSOR-001",
+  "location": "Warehouse A",
+  "readings": [
+    {
+      "timestamp": "2026-11-14T09:00:00+00:00",
+      "temperature": 5.7,
+      "humidity": 58.4
+    },
+    {
+      "timestamp": "2026-11-14T09:05:00+00:00",
+      "temperature": 2.2,
+      "humidity": 51.4
+    },
+    {
+      "timestamp": "2026-11-14T09:10:00+00:00",
+      "temperature": 4.7,
+      "humidity": 53.0
+    },
+    {
+      "timestamp": "2026-11-14T09:15:00+00:00",
+      "temperature": 3.6,
+      "humidity": 63.3
+    },
+    {
+      "timestamp": "2026-11-14T09:20:00+00:00",
+      "temperature": 2.4,
+      "humidity": 55.4
+    },
+    {
+      "timestamp": "2026-11-14T09:25:00+00:00",
+      "temperature": 7.6,
+      "humidity": 54.7
+    },
+    {
+      "timestamp": "2026-11-14T09:30:00+00:00",
+      "temperature": 5.5,
+      "humidity": 50.0
+    },
+    {
+      "timestamp": "2026-11-14T09:35:00+00:00",
+      "temperature": 2.9,
+      "humidity": 57.9
+    },
+    {
+      "timestamp": "2026-11-14T09:40:00+00:00",
+      "temperature": 4.4,
+      "humidity": 61.7
+    },
+    {
+      "timestamp": "2026-11-14T09:45:00+00:00",
+      "temperature": 5.4,
+      "humidity": 58.7
+    },
+    {
+      "timestamp": "2026-11-14T09:50:00+00:00",
+      "temperature": 3.6,
+      "humidity": 46.1
+    },
+    {
+      "timestamp": "2026-11-14T09:55:00+00:00",
+      "temperature": 3.9,
+      "humidity": 54.0
+    },
+    {
+      "timestamp": "2026-11-14T10:00:00+00:00",
+      "temperature": 2.7,
+      "humidity": 50.1
+    },
+    {
+      "timestamp": "2026-11-14T10:05:00+00:00",
+      "temperature": 2.5,
+      "humidity": 50.0
+    },
+    {
+      "timestamp": "2026-11-14T10:10:00+00:00",
+      "temperature": 4.1,
+      "humidity": 49.2
+    },
+    {
+      "timestamp": "2026-11-14T10:15:00+00:00",
+      "temperature": 6.6,
+      "humidity": 54.7
+    },
+    {
+      "timestamp": "2026-11-14T10:20:00+00:00",
+      "temperature": 3.3,
+      "humidity": 60.5
+    },
+    {
+      "timestamp": "2026-11-14T10:25:00+00:00",
+      "temperature": 3.4,
+      "humidity": 60.1
+    },
+    {
+      "timestamp": "2026-11-14T10:30:00+00:00",
+      "temperature": 4.2,
+      "humidity": 53.2
+    },
+    {
+      "timestamp": "2026-11-14T10:35:00+00:00",
+      "temperature": 3.9,
+      "humidity": 57.0
+    }
+  ]
+}
