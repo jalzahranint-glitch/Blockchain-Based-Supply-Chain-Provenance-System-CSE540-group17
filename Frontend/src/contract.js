@@ -6,7 +6,7 @@ export const EXPLORER = 'https://amoy.polygonscan.com'
 export const NETWORK = {
   chainId: '0x13882', chainName: 'Polygon Amoy Testnet',
   nativeCurrency: { name: 'POL', symbol: 'POL', decimals: 18 },
-  rpcUrls: ['https://rpc-amoy.polygon.technology/'], blockExplorerUrls: [EXPLORER],
+  rpcUrls: ['https://polygon-amoy-bor-rpc.publicnode.com'], blockExplorerUrls: [EXPLORER],
 }
 // Human-readable ABI derived from the Solidity source in the updated team ZIP.
 // These are the actual argument and return types, not a separate contract.
