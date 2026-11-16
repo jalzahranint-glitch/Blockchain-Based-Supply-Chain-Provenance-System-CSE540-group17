@@ -1,0 +1,453 @@
+/* Base styles */
+
+:root {
+  font-family: Inter, Arial, sans-serif;
+  color: #18332e;
+  background: #f4f7f5;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+a {
+  color: #176b51;
+  overflow-wrap: anywhere;
+}
+
+
+/* Header and branding */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 6%;
+  background: white;
+  border-bottom: 1px solid #dfe8e2;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #176b51;
+  color: white;
+  font-weight: 800;
+}
+
+.brand strong {
+  font-size: 22px;
+}
+
+.subtitle {
+  display: block;
+  margin-top: 4px;
+  color: #63756d;
+  font-size: 12px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 24px;
+  background: #edf2ef;
+  color: #52665c;
+  font-size: 13px;
+}
+
+.wallet-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+
+/* Main content and introduction */
+
+main {
+  max-width: 1160px;
+  margin: auto;
+  padding: 40px 24px;
+}
+
+.eyebrow {
+  color: #176b51;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+h1 {
+  margin: 16px 0;
+  font-size: clamp(32px, 5vw, 48px);
+  letter-spacing: -1.8px;
+}
+
+.hero > p:last-child {
+  max-width: 650px;
+  color: #63756d;
+  line-height: 1.7;
+}
+
+
+/* Supply chain stages */
+
+.journey {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 30px 0;
+}
+
+.journey-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid #dfe8e2;
+  border-radius: 14px;
+  background: white;
+}
+
+.step-number {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #e7f3ec;
+  color: #176b51;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* Notices and feedback */
+
+.notice {
+  padding: 16px 20px;
+  margin: 18px 0;
+  border: 1px solid #ebd7a6;
+  border-radius: 12px;
+  background: #fff8e8;
+  color: #735619;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.notice.error {
+  background: #fff0ee;
+  border-color: #edc1bb;
+  color: #922f24;
+}
+
+.notice.success {
+  background: #e9f6ee;
+  border-color: #bbd9c7;
+  color: #176b51;
+}
+
+.notice.info {
+  background: #eef5fc;
+  border-color: #cadbe9;
+  color: #28577d;
+}
+
+
+/* Wallet and contract connection */
+
+.connection-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  background: #fff;
+  padding: 22px;
+  border: 1px solid #dfe8e2;
+  border-radius: 14px;
+  margin-bottom: 22px;
+}
+
+.connection-card p {
+  margin: 8px 0;
+  font-size: 13px;
+}
+
+.connection-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.outline-button {
+  border: 1px solid #b6cbbf;
+  background: white;
+  color: #176b51;
+  border-radius: 9px;
+  padding: 11px 14px;
+  font-weight: 600;
+}
+
+
+/* Workspace and navigation */
+
+.workspace {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid #dfe8e2;
+  border-radius: 18px;
+  background: white;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  border-right: 1px solid #dfe8e2;
+}
+
+.nav-button {
+  padding: 14px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: #63756d;
+  text-align: left;
+}
+
+.nav-button:hover {
+  background: #f3f7f4;
+}
+
+.nav-button.active {
+  background: #e7f3ec;
+  color: #176b51;
+  font-weight: 700;
+}
+
+.panel {
+  padding: 30px;
+  min-width: 0;
+}
+
+.panel > p {
+  line-height: 1.65;
+  color: #52665c;
+}
+
+h2 {
+  margin: 0 0 10px;
+}
+
+
+/* Forms and inputs */
+
+form {
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin: 20px 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 13px 14px;
+  border: 1px solid #cbd8cf;
+  border-radius: 9px;
+  background: #fcfdfc;
+  color: #18332e;
+}
+
+input:focus,
+select:focus,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #176b51;
+  outline-offset: 2px;
+}
+
+.primary-button {
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px;
+  border: none;
+  border-radius: 9px;
+  background: #176b51;
+  color: white;
+  font-weight: 600;
+}
+
+.primary-button:disabled {
+  background: #dce5df;
+  color: #56675d;
+  opacity: 1;
+}
+
+.field-help {
+  color: #63756d;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+
+/* Footer */
+
+footer {
+  padding: 24px 0;
+  color: #63756d;
+  text-align: center;
+  font-size: 12px;
+}
+
+
+/* Product results */
+
+.address,
+dd {
+  overflow-wrap: anywhere;
+}
+
+.result {
+  margin-top: 28px;
+  padding: 20px;
+  background: #f5f9f6;
+  border: 1px solid #dae8df;
+  border-radius: 12px;
+}
+
+.result-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.result-heading h3 {
+  margin: 0;
+}
+
+dt {
+  font-size: 12px;
+  color: #63756d;
+  margin: 18px 0 6px;
+  font-weight: 600;
+}
+
+dd {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* Expandable sections */
+
+details {
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid #dfe8e2;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+details p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* Mobile layout */
+
+@media (max-width: 760px) {
+  .header,
+  .connection-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .journey {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .navigation {
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-right: none;
+    border-bottom: 1px solid #dfe8e2;
+    padding: 12px;
+  }
+
+  .nav-button {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .panel {
+    padding: 22px;
+  }
+
+  .journey-step {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  main {
+    padding: 28px 16px;
+  }
+
+  .address {
+    font-size: 12px;
+  }
+}
