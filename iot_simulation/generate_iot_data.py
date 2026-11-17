@@ -4,8 +4,7 @@ import random
 import hashlib
 from pathlib import Path
 from datetime import datetime, timedelta, timezone
-
-# Generate simulated IoT readings for product 1001.
+# Generate simulated IoT readings for product 18001.
 rng = random.Random(540)
 start = datetime(2026, 11, 14, 9, 0, tzinfo=timezone.utc)
 
@@ -22,7 +21,7 @@ for i in range(20):
     readings.append(reading)
 
 data = {
-    "productId": 1001,
+    "productId": 18001,
     "sensorId": "SENSOR-001",
     "location": "Warehouse A",
     "readings": readings
