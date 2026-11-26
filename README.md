@@ -20,18 +20,19 @@ Our goal is to make product tracking more transparent and reliable by recording 
 
 ## 2. Tools and Technologies
 
-We currently use:
-
-- **Solidity:** To develop the smart contract.
-- **Remix IDE:** To write, compile, deploy, and test the contract.
-- **Remix VM:** To test the contract locally.
-- **GitHub:** To store and share our project files.
-- **Python:** To simulate IoT sensor readings and verify data integrity.
-- **SHA-256:** To generate hashes for IoT data and detect modifications.
+- **Solidity:** Smart contract development.
+- **Remix IDE and Remix VM:** Local development and testing.
+- **GitHub:** Source code and documentation.
+- **Python:** IoT simulation and performance evaluation.
+- **SHA-256:** Data integrity verification.
+- **Polygon Amoy:** Public testnet deployment and testing.
+- **MetaMask:** Wallet connection and transaction authorization.
+- **Web Interface:** Interaction with the smart contract.
+- **Hardhat:** Local scalability experiments.
+- **Web3.py:** Gas analysis and read latency measurements.
+- **Matplotlib:** Performance visualization.
 
 The smart contract uses Solidity `^0.8.20` and was compiled using version `0.8.34`.
-
-For later stages, we plan to use Polygon Amoy, MetaMask, IPFS, and a simple web or command-line interface.
 
 ## 3. Smart Contract Features
 
