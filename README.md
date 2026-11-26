@@ -225,24 +225,18 @@ Local Hardhat execution times do not represent public blockchain confirmation ti
 
 ## 10. Current Status and Future Work
 
-We have completed the main smart contract functions and tested them locally using Remix VM.
+The project includes a deployed smart contract, role-based access control, product tracking, a web interface, and IoT data integrity verification.
 
-The current implementation supports product registration, role-based access control, custody transfers, status updates, administration management, event logging, and IoT hash verification.
+Gas analysis, read latency measurements, and scalability experiments have been completed.
 
-We also developed a Python-based IoT simulation that generates temperature and humidity readings. We used SHA-256 hashing to verify data integrity and demonstrate how modified sensor data can be detected.
+### Future Work
 
-All 17 automated Solidity unit tests passed with 0 failures.
+- Integrate IPFS for decentralized off-chain data storage.
+- Integrate real IoT devices instead of simulated sensor readings.
+- Improve privacy protection for sensitive supply chain data.
+- Evaluate performance under larger workloads and concurrent users.
 
-In the next stages, we plan to:
-
-- Deploy the smart contract to the Polygon Amoy testnet.
-- Use MetaMask to connect participant wallets.
-- Integrate IPFS for off-chain product metadata storage.
-- Complete a simple web or command-line interface for product tracking.
-- Evaluate gas costs, scalability, privacy, and on-chain versus off-chain data management.
-- Compare blockchain-based tracking with traditional centralized systems.
-
-These integrations and evaluations are planned for future development and have not yet been completed.
+The current system is a prototype for blockchain-based supply chain provenance.
 
 ## 11. How to Run the IoT Simulation
 
