@@ -84,30 +84,35 @@ The contract checks participant roles and prevents invalid custody transfers, du
 
 ## 6. Repository Structure
 
-```text
-contracts/
-    SupplyChain.sol
-    UnauthorizedRoleCaller.sol
+    Frontend/
+        public/
+        src/
+        index.html
+        package.json
+        package-lock.json
+        vite.config.js
 
-tests/
-    SupplyChain_test.sol
+    contracts/
+        SupplyChain.sol
+        UnauthorizedRoleCaller.sol
 
-iot_simulation/
-    generate_iot_data.py
-    verify_iot_data.py
-    iot_readings.json
-    iot_readings_tampered.json
-    original_hash.txt
-README.md
-```
+    iot_simulation/
+        generate_iot_data.py
+        verify_iot_data.py
+        iot_readings.json
+        iot_readings_tampered.json
+        original_hash.txt
 
-- `iot_simulation/` contains the Python scripts and sample IoT data.
-- `generate_iot_data.py` generates simulated sensor readings and their SHA-256 hash.
-- `verify_iot_data.py` checks whether the IoT data matches the original hash.
-- `iot_readings.json` contains the original simulated sensor data.
-- `iot_readings_tampered.json` contains modified data used to demonstrate tampering detection.
-- `original_hash.txt` stores the SHA-256 hash of the original data.
+    tests/
+        SupplyChain_test.sol
 
+    README.md
+
+- `Frontend/` contains the web interface and wallet integration.
+- `contracts/` contains the smart contract and supporting contract for access control testing.
+- `iot_simulation/` contains Python scripts and sample IoT data for integrity verification.
+- `tests/` contains automated smart contract unit tests.
+- `README.md` contains project documentation.
 
 ## 7. How to Compile and Deploy
 
