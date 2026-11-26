@@ -206,6 +206,23 @@ The original hash returned `true` during verification, while the modified data h
 
 These tests were performed locally using Python and Remix VM.
 
+### Performance Evaluation
+
+Performance was evaluated using Polygon Amoy and Hardhat.
+
+- Gas Analysis: 29 successful transaction receipts.
+- Read Latency: 120 measurements across four products.
+- Average Read Latency: 575.80 ms.
+- Scalability: 480 product registration transactions.
+- Batch Sizes: 10, 50, and 100 products.
+- Repetitions: Three runs per batch size.
+
+Gas usage per registration remained approximately constant as the batch size increased.
+
+All evaluation scripts were successfully rerun, and the original results were preserved.
+
+Local Hardhat execution times do not represent public blockchain confirmation times.
+
 ## 10. Current Status and Future Work
 
 We have completed the main smart contract functions and tested them locally using Remix VM.
