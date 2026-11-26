@@ -148,6 +148,14 @@ Participants must follow the allowed custody transfer sequence.
 
 The IoT hash verification function returns `true` when the provided hash matches the stored hash and `false` when it does not match.
 
+### Web Interface
+
+The web interface allows users to connect their MetaMask wallets to Polygon Amoy and interact with the deployed smart contract.
+
+Users can register products, retrieve product information, transfer custody, update product status, and record IoT data hashes.
+
+All write operations are subject to role-based access control.
+
 ## 9. Testing
 We tested the smart contract locally using Remix VM and the Solidity Unit Testing plugin.
 
