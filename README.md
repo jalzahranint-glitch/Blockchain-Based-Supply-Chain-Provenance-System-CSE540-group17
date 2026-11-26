@@ -116,21 +116,30 @@ The contract checks participant roles and prevents invalid custody transfers, du
 
 ## 7. How to Compile and Deploy
 
-1. Open [Remix IDE](https://app.remix.live/).
-2. Open the project workspace or create a new workspace.
-3. Add the `contracts/SupplyChain.sol` file.
-4. Open the **Solidity Compiler** tab.
-5. Select Solidity compiler version `0.8.34`.
-6. Click **Compile SupplyChain.sol**.
-7. Open the **Deploy & Run Transactions** tab.
-8. Select **Remix VM** as the environment.
-9. Select the `SupplyChain` contract.
-10. Click **Deploy**.
+### Local Deployment Using Remix
+
+1. Open [Remix IDE](https://remix.ethereum.org/).
+2. Add the `contracts/SupplyChain.sol` file.
+3. Select Solidity compiler version `0.8.34`.
+4. Compile `SupplyChain.sol`.
+5. Open the Deploy & Run Transactions tab.
+6. Select Remix VM as the environment.
+7. Select the SupplyChain contract and click Deploy.
 
 The account that deploys the contract becomes the administrator.
 
 No real cryptocurrency is needed when testing in Remix VM.
-The contract has been deployed and tested locally using Remix VM. Deployment to the Polygon Amoy testnet is planned for a later stage.
+
+### Polygon Amoy Deployment
+
+The smart contract has been deployed and tested on the Polygon Amoy testnet.
+
+- **Network:** Polygon Amoy Testnet
+- **Chain ID:** 80002
+- **Contract Address:** `0xb038fc9d3922f8dd06085b0d3548d30b90a82e67`
+- **Block Explorer:** [View Smart Contract on Polygonscan](https://amoy.polygonscan.com/address/0xb038fc9d3922f8dd06085b0d3548d30b90a82e67)
+
+MetaMask is used to connect participant wallets and authorize transactions. Testnet POL is used to pay transaction fees.
 
 ## 8. How to Use the Contract
 
