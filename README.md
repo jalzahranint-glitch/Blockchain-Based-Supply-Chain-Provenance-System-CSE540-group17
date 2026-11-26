@@ -106,6 +106,12 @@ The contract checks participant roles and prevents invalid custody transfers, du
     tests/
         SupplyChain_test.sol
 
+    Group17_Evaluation/
+        polygon_amoy/
+        hardhat_scalability/
+        README.md
+        requirements.txt
+
     README.md
 
 - `Frontend/` contains the web interface and wallet integration.
@@ -237,6 +243,8 @@ Gas usage per registration remained approximately constant as the batch size inc
 All evaluation scripts were successfully rerun, and the original results were preserved.
 
 Local Hardhat execution times do not represent public blockchain confirmation times.
+
+For detailed results and reproduction instructions, see [Performance Evaluation](Group17_Evaluation/README.md).
 
 ## 10. Current Status and Future Work
 

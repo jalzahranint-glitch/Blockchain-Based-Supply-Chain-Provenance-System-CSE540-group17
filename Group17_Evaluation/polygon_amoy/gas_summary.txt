@@ -1,0 +1,21 @@
+GROUP 17 - POLYGON AMOY GAS ANALYSIS
+Input transactions: 29 (including deployment if exported)
+Receipts successfully collected: 29/29
+Network: Polygon Amoy; chain ID 80002
+Fees are TEST POL (not real USD costs).
+
+Method | Exported tx count | Gas observations | Avg Gas Used | Total exported fee (POL)
+Contract Deployment | 1 | 1 | 3085444.0 | 0.089786421760680804
+Set Participant Role | 9 | 9 | 52645.33 | 0.018242251860412152
+Register Product | 4 | 4 | 194973.5 | 0.029560133679212604
+Transfer Custody | 5 | 5 | 57791.2 | 0.010179114228520322
+Update Status | 4 | 4 | 50064.25 | 0.006017889474787053
+Record Io T Hash | 1 | 1 | 69803.0 | 0.002031267304397589
+Admin Reassign Custody | 1 | 1 | 60634.0 | 0.003589928687389688
+Transfer Administration | 2 | 2 | 54853.0 | 0.006490239460621912
+Accept Administration | 2 | 2 | 34523.0 | 0.004055809250237023
+
+Gas Used = receipt.gasUsed
+Effective Gas Price (Gwei) = receipt.effectiveGasPrice / 10^9
+Fee (POL) = gasUsed * effectiveGasPrice / 10^18
+Do not mix testnet gas with Hardhat local benchmark results.
