@@ -1,7 +1,7 @@
 
 # Blockchain-Based Supply Chain Provenance System
 
-**CSE 540 – Engineering Blockchain Applications**  
+**CSE 540 - Engineering Blockchain Applications**  
 **Group 17 | Fall B 2026**
 
 **Team Members:**
@@ -39,17 +39,17 @@ The smart contract uses Solidity `^0.8.20` and was compiled using version `0.8.3
 The main smart contract is `SupplyChain.sol`.
 
 The main smart contract includes the following functions:
-- `setParticipantRole()` – Assigns or changes participant roles.
-- `getParticipantRole()` – Returns a participant's assigned role.
-- `registerProduct()` – Registers a new product with a unique ID.
-- `getProduct()` – Returns information about a registered product.
-- `updateStatus()` – Updates a product's status.
-- `transferCustody()` – Transfers custody to the next authorized participant.
-- `transferAdministration()` – Nominates a new administrator.
-- `acceptAdministration()` – Allows the nominated administrator to accept control.
-- `adminReassignCustody()` – Reassigns custody when the current custodian is no longer authorized.
-- `recordIoTHash()` – Records the SHA-256 hash of off-chain IoT data.
-- `verifyIoTHash()` – Checks whether an IoT data hash matches the stored hash.
+- `setParticipantRole()` - Assigns or changes participant roles.
+- `getParticipantRole()` - Returns a participant's assigned role.
+- `registerProduct()` - Registers a new product with a unique ID.
+- `getProduct()` - Returns information about a registered product.
+- `updateStatus()` - Updates a product's status.
+- `transferCustody()` - Transfers custody to the next authorized participant.
+- `transferAdministration()` - Nominates a new administrator.
+- `acceptAdministration()` - Allows the nominated administrator to accept control.
+- `adminReassignCustody()` - Reassigns custody when the current custodian is no longer authorized.
+- `recordIoTHash()` - Records the SHA-256 hash of off-chain IoT data.
+- `verifyIoTHash()` - Checks whether an IoT data hash matches the stored hash.
   
 The contract also uses events to record product registration, role changes, status updates, custody transfers, administration changes, and IoT hash recordings.
 
@@ -72,11 +72,11 @@ The administrator does not automatically have the Producer role. To register pro
 
 Products move through the following participants:
 
-**Producer → Transporter → Warehouse → Retailer**
+**Producer -> Transporter -> Warehouse -> Retailer**
 
 Each product also moves through four status stages:
 
-**Created → Shipped → Received → Delivered**
+**Created -> Shipped -> Received -> Delivered**
 
 Only the current custodian can transfer a product or update its status.
 
